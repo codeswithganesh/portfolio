@@ -7,7 +7,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-card border-t border-border py-8">
+    <footer className="bg-background border-t border-border py-8">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="text-center md:text-left mb-4 md:mb-0">
@@ -28,7 +28,7 @@ export default function Footer() {
             </Button>
             <Button
               asChild
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="bg-primary text-primary-foreground shadow-lg shadow-cyan-500/30 hover:bg-cyan-400/90 hover:shadow-xl hover:shadow-cyan-500/40"
               data-testid="button-download-resume"
             >
               <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">

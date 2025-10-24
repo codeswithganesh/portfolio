@@ -6,7 +6,6 @@ import { Sun, Moon, Menu } from "lucide-react";
 
 const navLinks = [
   { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
@@ -48,18 +47,18 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50 transition-colors duration-300">
+    <nav className="fixed top-0 w-full bg-transparent backdrop-blur-md z-50 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="font-semibold text-xl text-primary">AJ</div>
+          <div className="font-semibold text-xl bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent">AJ</div>
           
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleLinkClick(link.href)}
-                className={`nav-link text-sm font-medium hover:text-primary ${
-                  activeSection === link.href.slice(1) ? "active" : ""
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === link.href.slice(1) ? "text-primary" : "text-muted-foreground"
                 }`}
                 data-testid={`nav-link-${link.label.toLowerCase()}`}
               >
@@ -73,7 +72,7 @@ export default function Navigation() {
               variant="ghost"
               size="icon"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              className="rounded-lg bg-muted hover:bg-muted/80"
+              className="rounded-lg bg-card/50 hover:bg-card"
               data-testid="theme-toggle"
             >
               {theme === "light" ? (
@@ -88,7 +87,7 @@ export default function Navigation() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="md:hidden rounded-lg bg-muted hover:bg-muted/80"
+                  className="md:hidden rounded-lg bg-card/50 hover:bg-card"
                   data-testid="mobile-menu-toggle"
                 >
                   <Menu className="h-5 w-5 text-primary" />

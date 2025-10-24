@@ -38,10 +38,10 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-muted/30">
+    <section id="contact" className="py-20 bg-background">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Let's Connect</h2>
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent">Let's Connect</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Ready to discuss opportunities or collaborate on exciting projects? I'd love to hear from you.
           </p>
@@ -123,7 +123,7 @@ export default function ContactSection() {
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-card border border-border">
+          <Card className="bg-card border-border">
             <CardContent className="p-8">
               <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -139,6 +139,7 @@ export default function ContactSection() {
                     placeholder="Your full name"
                     required
                     data-testid="input-name"
+                    className="bg-input"
                   />
                 </div>
                 
@@ -154,6 +155,7 @@ export default function ContactSection() {
                     placeholder="your.email@company.com"
                     required
                     data-testid="input-email"
+                    className="bg-input"
                   />
                 </div>
                 
@@ -162,7 +164,7 @@ export default function ContactSection() {
                     Subject
                   </Label>
                   <Select value={formData.subject} onValueChange={(value) => handleInputChange("subject", value)}>
-                    <SelectTrigger data-testid="select-subject">
+                    <SelectTrigger data-testid="select-subject" className="bg-input">
                       <SelectValue placeholder="Select a topic" />
                     </SelectTrigger>
                     <SelectContent>
@@ -186,13 +188,14 @@ export default function ContactSection() {
                     placeholder="Tell me about your project or opportunity..."
                     required
                     data-testid="textarea-message"
+                    className="bg-input"
                   />
                 </div>
                 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="w-full bg-primary text-primary-foreground shadow-lg shadow-cyan-500/30 hover:bg-cyan-400/90 hover:shadow-xl hover:shadow-cyan-500/40"
                   data-testid="button-submit-form"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}

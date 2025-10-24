@@ -46,7 +46,7 @@ export default function ExperienceSection() {
     <section id="experience" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Professional Experience</h2>
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent">Professional Experience</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Journey through impactful roles at innovative companies
           </p>
@@ -54,7 +54,7 @@ export default function ExperienceSection() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-white/10"></div>
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border"></div>
 
           <div className="space-y-12">
             {experiences.map((experience, index) => (
@@ -63,13 +63,13 @@ export default function ExperienceSection() {
                   <div className={`w-5 h-5 rounded-full bg-${experience.color} border-4 border-background shadow-lg`}></div>
                 </div>
                 <Card
-                  className="ml-20 bg-white/5 backdrop-blur-sm border-white/10 shadow-lg w-full"
+                  className="ml-20 bg-card border-border shadow-lg w-full"
                   data-testid={`experience-card-${index}`}
                 >
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                       <div>
-                        <h3 className="text-xl font-semibold text-white">{experience.title}</h3>
+                        <h3 className="text-xl font-semibold text-foreground">{experience.title}</h3>
                         <p className={`text-${experience.color} font-medium`}>{experience.company}</p>
                       </div>
                       <span className="text-muted-foreground text-sm mt-2 md:mt-0">{experience.period}</span>

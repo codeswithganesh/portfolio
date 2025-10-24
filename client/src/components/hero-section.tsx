@@ -27,7 +27,7 @@ export default function HeroSection() {
 
       <div className="relative z-20 max-w-4xl mx-auto px-6 text-center">
         <div className="animate-fade-in space-y-6">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent">
             Alex Johnson
           </h1>
           <h2 className="text-3xl md:text-4xl font-medium text-foreground">
@@ -40,7 +40,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button
               onClick={handleScrollToProjects}
-              className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-primary/30 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-1"
+              className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-cyan-500/30 hover:bg-cyan-400/90 hover:shadow-xl hover:shadow-cyan-500/40 hover:-translate-y-1"
               data-testid="button-view-work"
             >
               View My Work

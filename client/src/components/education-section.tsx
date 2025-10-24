@@ -51,7 +51,7 @@ export default function EducationSection() {
     <section id="education" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Education & Certifications</h2>
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent">Education & Certifications</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Academic foundation and continuous learning in technology
           </p>
@@ -59,7 +59,7 @@ export default function EducationSection() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Education */}
-          <Card className="bg-white/5 backdrop-blur-sm border-white/10 shadow-lg">
+          <Card className="bg-card border-border shadow-lg">
             <CardContent className="p-8">
               <div className="text-center mb-6">
                 <GraduationCap className="h-12 w-12 text-primary mb-4 mx-auto" />
@@ -68,7 +68,7 @@ export default function EducationSection() {
               
               <div className="space-y-6">
                 <div className="border-l-4 border-primary pl-6" data-testid="education-bachelor">
-                  <h4 className="text-lg font-semibold text-white">Bachelor of Science in Computer Science</h4>
+                  <h4 className="text-lg font-semibold text-foreground">Bachelor of Science in Computer Science</h4>
                   <p className="text-primary font-medium">Stanford University</p>
                   <p className="text-muted-foreground text-sm mb-2">2015 - 2019</p>
                   <p className="text-muted-foreground text-sm">GPA: 3.8/4.0 • Magna Cum Laude</p>
@@ -78,7 +78,7 @@ export default function EducationSection() {
                 </div>
 
                 <div className="border-l-4 border-accent pl-6" data-testid="education-minor">
-                  <h4 className="text-lg font-semibold text-white">Minor in Mathematics</h4>
+                  <h4 className="text-lg font-semibold text-foreground">Minor in Mathematics</h4>
                   <p className="text-accent font-medium">Stanford University</p>
                   <p className="text-muted-foreground text-sm">Focus on Statistics and Linear Algebra</p>
                 </div>
@@ -87,7 +87,7 @@ export default function EducationSection() {
           </Card>
 
           {/* Certifications */}
-          <Card className="bg-white/5 backdrop-blur-sm border-white/10 shadow-lg">
+          <Card className="bg-card border-border shadow-lg">
             <CardContent className="p-8">
               <div className="text-center mb-6">
                 <Award className="h-12 w-12 text-accent mb-4 mx-auto" />
@@ -100,12 +100,12 @@ export default function EducationSection() {
                   return (
                     <div
                       key={index}
-                      className="flex items-center p-4 bg-white/5 rounded-lg border border-white/10"
+                      className="flex items-center p-4 bg-muted/50 rounded-lg border border-border"
                       data-testid={`certification-${index}`}
                     >
                       <IconComponent className="h-6 w-6 text-primary mr-4 flex-shrink-0" />
                       <div>
-                        <h4 className="font-semibold text-white">{cert.title}</h4>
+                        <h4 className="font-semibold text-foreground">{cert.title}</h4>
                         <p className="text-muted-foreground text-sm">
                           {cert.provider} • {cert.year}
                         </p>
@@ -119,7 +119,7 @@ export default function EducationSection() {
         </div>
 
         {/* Additional Achievements */}
-        <div className="mt-12 bg-white/5 backdrop-blur-sm border-white/10 shadow-lg rounded-xl p-8">
+        <div className="mt-12 bg-card border-border shadow-lg rounded-xl p-8">
           <h3 className="text-xl font-semibold text-center mb-6">Additional Achievements</h3>
           <div className="grid md:grid-cols-3 gap-6 text-center">
             {achievements.map((achievement, index) => {
@@ -127,7 +127,7 @@ export default function EducationSection() {
               return (
                 <div key={index} data-testid={`achievement-${index}`}>
                   <IconComponent className="h-8 w-8 text-primary mb-3 mx-auto" />
-                  <h4 className="font-semibold text-white mb-2">{achievement.title}</h4>
+                  <h4 className="font-semibold text-foreground mb-2">{achievement.title}</h4>
                   <p className="text-muted-foreground text-sm">{achievement.description}</p>
                 </div>
               );

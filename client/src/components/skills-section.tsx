@@ -61,7 +61,7 @@ export default function SkillsSection() {
     <section id="skills" className="py-20" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Technical Skills</h2>
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent">Technical Skills</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             A comprehensive toolkit built through years of hands-on development experience
           </p>
@@ -69,7 +69,7 @@ export default function SkillsSection() {
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Programming Languages */}
-          <Card className="bg-white/5 backdrop-blur-sm border-white/10 shadow-lg">
+          <Card className="bg-card border-border shadow-lg">
             <CardContent className="p-6">
               <h3 className="text-xl font-semibold text-center mb-6">Programming Languages</h3>
               <div className="space-y-4">
@@ -81,8 +81,8 @@ export default function SkillsSection() {
                     </div>
                     <Progress
                       value={isVisible ? skill.level : 0}
-                      className="h-2 bg-white/10"
-                      indicatorClassName="bg-primary"
+                      className="h-2 bg-muted"
+                      indicatorClassName="bg-cyan-400"
                       style={progressStyles}
                       data-testid={`skill-progress-${skill.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                     />
@@ -93,7 +93,7 @@ export default function SkillsSection() {
           </Card>
 
           {/* Frameworks & Libraries */}
-          <Card className="bg-white/5 backdrop-blur-sm border-white/10 shadow-lg">
+          <Card className="bg-card border-border shadow-lg">
             <CardContent className="p-6">
               <h3 className="text-xl font-semibold text-center mb-6">Frameworks & Libraries</h3>
               <div className="space-y-4">
@@ -105,8 +105,8 @@ export default function SkillsSection() {
                     </div>
                     <Progress
                       value={isVisible ? skill.level : 0}
-                      className="h-2 bg-white/10"
-                      indicatorClassName="bg-accent"
+                      className="h-2 bg-muted"
+                      indicatorClassName="bg-magenta-500"
                       style={progressStyles}
                       data-testid={`framework-progress-${skill.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                     />
@@ -117,7 +117,7 @@ export default function SkillsSection() {
           </Card>
 
           {/* Tools & Technologies */}
-          <Card className="bg-white/5 backdrop-blur-sm border-white/10 shadow-lg">
+          <Card className="bg-card border-border shadow-lg">
             <CardContent className="p-6">
               <h3 className="text-xl font-semibold text-center mb-6">Tools & Cloud</h3>
               <div className="grid grid-cols-2 gap-4">
@@ -126,11 +126,11 @@ export default function SkillsSection() {
                   return (
                     <Card
                       key={index}
-                      className="bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-pointer group"
+                      className="bg-muted/50 border border-border hover:bg-muted transition-colors cursor-pointer group"
                       data-testid={`tool-card-${tool.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                     >
                       <CardContent className="p-4 text-center">
-                        <IconComponent className="h-8 w-8 text-primary mb-2 mx-auto transition-transform duration-300 group-hover:scale-110" />
+                        <IconComponent className="h-8 w-8 text-yellow-400 mb-2 mx-auto transition-transform duration-300 group-hover:scale-110" />
                         <div className="font-medium text-sm">{tool.name}</div>
                       </CardContent>
                     </Card>

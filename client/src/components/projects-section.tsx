@@ -43,7 +43,7 @@ export default function ProjectsSection() {
     <section id="projects" className="py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-magenta-500 bg-clip-text text-transparent">Featured Projects</h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
             A collection of my recent work showcasing different technologies and problem-solving approaches
           </p>
@@ -53,7 +53,7 @@ export default function ProjectsSection() {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="bg-white/5 backdrop-blur-sm border-white/10 shadow-lg rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1"
+              className="bg-card border-border shadow-lg rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-cyan-500/20 hover:border-cyan-500/50 hover:-translate-y-2 transform-gpu [transform-style:preserve-3d] [transform:translateZ(0)]"
               data-testid={`project-card-${index}`}
             >
               <div className="relative overflow-hidden group h-56">
@@ -65,7 +65,7 @@ export default function ProjectsSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
               </div>
               <CardContent className="p-6">
-                <h3 className="text-2xl font-bold mb-3 text-white">{project.title}</h3>
+                <h3 className="text-2xl font-bold mb-3 text-foreground">{project.title}</h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   {project.description}
                 </p>
@@ -75,7 +75,7 @@ export default function ProjectsSection() {
                     <Badge
                       key={techIndex}
                       variant="outline"
-                      className="text-accent border-accent/30 bg-accent/10"
+                      className="text-cyan-400 border-cyan-400/30 bg-cyan-400/10"
                     >
                       {tech}
                     </Badge>
@@ -95,7 +95,7 @@ export default function ProjectsSection() {
                       Code
                     </a>
                   </Button>
-                  <Button asChild className="bg-primary hover:bg-primary/90">
+                  <Button asChild className="bg-primary text-primary-foreground shadow-lg shadow-cyan-500/30 hover:bg-cyan-400/90 hover:shadow-xl hover:shadow-cyan-500/40">
                     <a
                       href={project.demo}
                       target="_blank"
@@ -117,7 +117,7 @@ export default function ProjectsSection() {
           <Button
             asChild
             size="lg"
-            className="bg-transparent border-2 border-primary text-primary font-bold transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1"
+            className="bg-transparent border-2 border-primary text-primary font-bold transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:shadow-xl hover:shadow-cyan-500/30 hover:-translate-y-1"
             data-testid="button-view-all-projects"
           >
             <a href="https://github.com/alexjohnson" target="_blank" rel="noopener noreferrer">
