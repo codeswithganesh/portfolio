@@ -19,14 +19,14 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-muted pt-20"
+      className="min-h-screen flex items-center justify-center pt-20"
     >
       <div className="max-w-6xl mx-auto px-6 text-center">
         <div className="animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             Alex Johnson
           </h1>
-          <h2 className="text-2xl md:text-3xl font-semibold text-secondary-foreground mb-4">
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
             Full Stack Developer
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -36,7 +36,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <Button
               onClick={handleScrollToProjects}
-              className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors inline-flex items-center"
+              className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium transition-all duration-300 inline-flex items-center shadow-lg shadow-primary/30 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-1"
               data-testid="button-view-work"
             >
               View My Work
@@ -45,7 +45,7 @@ export default function HeroSection() {
             <Button
               variant="outline"
               onClick={handleScrollToContact}
-              className="border border-border text-foreground px-8 py-3 rounded-lg font-medium hover:bg-muted transition-colors"
+              className="border border-border text-foreground px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-muted/50 hover:-translate-y-1"
               data-testid="button-get-in-touch"
             >
               Get In Touch

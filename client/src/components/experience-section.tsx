@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ChevronRight } from "lucide-react";
+import { Briefcase } from "lucide-react";
 
 const experiences = [
   {
@@ -43,7 +43,7 @@ const experiences = [
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-20 bg-muted/30">
+    <section id="experience" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Professional Experience</h2>
@@ -54,32 +54,32 @@ export default function ExperienceSection() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border"></div>
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-white/10"></div>
 
           <div className="space-y-12">
             {experiences.map((experience, index) => (
               <div key={index} className="relative flex items-start">
-                <div
-                  className={`absolute left-6 w-4 h-4 bg-${experience.color} rounded-full border-4 border-background`}
-                ></div>
+                <div className="absolute left-8 -translate-x-1/2 mt-1">
+                  <div className={`w-5 h-5 rounded-full bg-${experience.color} border-4 border-background shadow-lg`}></div>
+                </div>
                 <Card
-                  className="ml-20 bg-card border border-border hover:shadow-lg transition-shadow w-full"
+                  className="ml-20 bg-white/5 backdrop-blur-sm border-white/10 shadow-lg w-full"
                   data-testid={`experience-card-${index}`}
                 >
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                       <div>
-                        <h3 className="text-xl font-semibold">{experience.title}</h3>
+                        <h3 className="text-xl font-semibold text-white">{experience.title}</h3>
                         <p className={`text-${experience.color} font-medium`}>{experience.company}</p>
                       </div>
-                      <span className="text-muted-foreground text-sm">{experience.period}</span>
+                      <span className="text-muted-foreground text-sm mt-2 md:mt-0">{experience.period}</span>
                     </div>
                     
-                    <ul className="space-y-2 text-muted-foreground mb-4">
+                    <ul className="space-y-3 text-muted-foreground mb-4">
                       {experience.achievements.map((achievement, achievementIndex) => (
                         <li key={achievementIndex} className="flex items-start">
-                          <ChevronRight className={`h-3 w-3 text-${experience.color} mr-3 mt-1 flex-shrink-0`} />
-                          <span className="text-sm">{achievement}</span>
+                          <Briefcase className={`h-4 w-4 text-${experience.color} mr-3 mt-1 flex-shrink-0`} />
+                          <span>{achievement}</span>
                         </li>
                       ))}
                     </ul>
@@ -89,9 +89,7 @@ export default function ExperienceSection() {
                         <Badge
                           key={techIndex}
                           variant="outline"
-                          className={`text-xs ${
-                            techIndex % 2 === 0 ? "bg-primary/10 text-primary" : "bg-accent/10 text-accent"
-                          }`}
+                          className={`text-xs border-${experience.color}/30 text-${experience.color}`}
                         >
                           {tech}
                         </Badge>

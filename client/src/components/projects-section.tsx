@@ -40,7 +40,7 @@ const projects = [
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="py-20 bg-muted/30">
+    <section id="projects" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
@@ -53,19 +53,18 @@ export default function ProjectsSection() {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="project-card bg-card rounded-xl border border-border shadow-sm hover:shadow-lg"
+              className="project-card bg-card rounded-xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-all duration-300 hover:border-primary"
               data-testid={`project-card-${index}`}
             >
+              <div className="relative overflow-hidden group">
+                <img
+                  src={project.image}
+                  alt={`${project.title} interface`}
+                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              </div>
               <CardContent className="p-6">
-                <div className="relative mb-6 rounded-lg overflow-hidden bg-muted">
-                  <img
-                    src={project.image}
-                    alt={`${project.title} interface`}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                </div>
-                
                 <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
                   {project.description}
@@ -75,35 +74,39 @@ export default function ProjectsSection() {
                   {project.technologies.map((tech, techIndex) => (
                     <Badge
                       key={techIndex}
-                      variant={techIndex % 2 === 0 ? "default" : "secondary"}
-                      className={techIndex % 2 === 0 ? "bg-primary/10 text-primary" : "bg-accent/10 text-accent"}
+                      variant="default"
+                      className="bg-primary/10 text-primary border border-primary/20"
                     >
                       {tech}
                     </Badge>
                   ))}
                 </div>
                 
-                <div className="flex space-x-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-muted-foreground hover:text-primary transition-colors"
-                    data-testid={`project-github-${index}`}
-                  >
-                    <Github className="h-4 w-4 mr-2" />
-                    Code
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-muted-foreground hover:text-primary transition-colors"
-                    data-testid={`project-demo-${index}`}
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Live Demo
-                  </a>
+                <div className="flex space-x-4 mt-6">
+                  <Button asChild variant="outline" size="sm">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center"
+                      data-testid={`project-github-${index}`}
+                    >
+                      <Github className="h-4 w-4 mr-2" />
+                      Code
+                    </a>
+                  </Button>
+                  <Button asChild size="sm">
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center"
+                      data-testid={`project-demo-${index}`}
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Live Demo
+                    </a>
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -112,9 +115,8 @@ export default function ProjectsSection() {
 
         <div className="text-center mt-12">
           <Button
-            variant="outline"
             asChild
-            className="border border-border hover:bg-muted"
+            className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-primary/30 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-1"
             data-testid="button-view-all-projects"
           >
             <a href="https://github.com/alexjohnson" target="_blank" rel="noopener noreferrer">

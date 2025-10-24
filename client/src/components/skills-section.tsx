@@ -22,12 +22,12 @@ const frameworks = [
 const tools = [
   { name: "AWS", icon: Cloud },
   { name: "Docker", icon: Code },
-  { name: "GitBranch", icon: GitBranch },
+  { name: "Git", icon: GitBranch },
   { name: "PostgreSQL", icon: Database },
   { name: "MongoDB", icon: Database },
   { name: "Redis", icon: Cpu },
   { name: "CI/CD", icon: Wrench },
-  { name: "Analytics", icon: BarChart3 },
+  { name: "Terraform", icon: Zap },
 ];
 
 export default function SkillsSection() {
@@ -43,7 +43,7 @@ export default function SkillsSection() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.2 }
     );
 
     if (sectionRef.current) {
@@ -53,8 +53,12 @@ export default function SkillsSection() {
     return () => observer.disconnect();
   }, []);
 
+  const progressStyles = {
+    transition: "width 1.5s ease-in-out",
+  };
+
   return (
-    <section id="skills" className="py-20 bg-background" ref={sectionRef}>
+    <section id="skills" className="py-20" ref={sectionRef}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Technical Skills</h2>
@@ -65,69 +69,76 @@ export default function SkillsSection() {
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Programming Languages */}
-          <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-center mb-6">Programming Languages</h3>
-            
-            <div className="space-y-4">
-              {programmingLanguages.map((skill, index) => (
-                <div key={index}>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-sm text-muted-foreground">{skill.level}%</span>
+          <Card className="bg-white/5 backdrop-blur-sm border-white/10 shadow-lg">
+            <CardContent className="p-6">
+              <h3 className="text-xl font-semibold text-center mb-6">Programming Languages</h3>
+              <div className="space-y-4">
+                {programmingLanguages.map((skill, index) => (
+                  <div key={index}>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="font-medium">{skill.name}</span>
+                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                    </div>
+                    <Progress
+                      value={isVisible ? skill.level : 0}
+                      className="h-2 bg-white/10"
+                      indicatorClassName="bg-primary"
+                      style={progressStyles}
+                      data-testid={`skill-progress-${skill.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                    />
                   </div>
-                  <Progress
-                    value={isVisible ? skill.level : 0}
-                    className="h-2"
-                    data-testid={`skill-progress-${skill.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Frameworks & Libraries */}
-          <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-center mb-6">Frameworks & Libraries</h3>
-            
-            <div className="space-y-4">
-              {frameworks.map((skill, index) => (
-                <div key={index}>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-sm text-muted-foreground">{skill.level}%</span>
+          <Card className="bg-white/5 backdrop-blur-sm border-white/10 shadow-lg">
+            <CardContent className="p-6">
+              <h3 className="text-xl font-semibold text-center mb-6">Frameworks & Libraries</h3>
+              <div className="space-y-4">
+                {frameworks.map((skill, index) => (
+                  <div key={index}>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="font-medium">{skill.name}</span>
+                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                    </div>
+                    <Progress
+                      value={isVisible ? skill.level : 0}
+                      className="h-2 bg-white/10"
+                      indicatorClassName="bg-accent"
+                      style={progressStyles}
+                      data-testid={`framework-progress-${skill.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                    />
                   </div>
-                  <Progress
-                    value={isVisible ? skill.level : 0}
-                    className="h-2"
-                    data-testid={`framework-progress-${skill.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Tools & Technologies */}
-          <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-center mb-6">Tools & Cloud</h3>
-            
-            <div className="grid grid-cols-2 gap-4">
-              {tools.map((tool, index) => {
-                const IconComponent = tool.icon;
-                return (
-                  <Card
-                    key={index}
-                    className="bg-card border border-border hover:bg-muted/50 transition-colors cursor-pointer"
-                    data-testid={`tool-card-${tool.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                  >
-                    <CardContent className="p-4 text-center">
-                      <IconComponent className="h-8 w-8 text-primary mb-2 mx-auto" />
-                      <div className="font-medium text-sm">{tool.name}</div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
+          <Card className="bg-white/5 backdrop-blur-sm border-white/10 shadow-lg">
+            <CardContent className="p-6">
+              <h3 className="text-xl font-semibold text-center mb-6">Tools & Cloud</h3>
+              <div className="grid grid-cols-2 gap-4">
+                {tools.map((tool, index) => {
+                  const IconComponent = tool.icon;
+                  return (
+                    <Card
+                      key={index}
+                      className="bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-pointer group"
+                      data-testid={`tool-card-${tool.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                    >
+                      <CardContent className="p-4 text-center">
+                        <IconComponent className="h-8 w-8 text-primary mb-2 mx-auto transition-transform duration-300 group-hover:scale-110" />
+                        <div className="font-medium text-sm">{tool.name}</div>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
