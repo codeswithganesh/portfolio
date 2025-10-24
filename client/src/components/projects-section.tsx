@@ -41,49 +41,49 @@ const projects = [
 export default function ProjectsSection() {
   return (
     <section id="projects" className="py-20">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
             A collection of my recent work showcasing different technologies and problem-solving approaches
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="project-card bg-card rounded-xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-all duration-300 hover:border-primary"
+              className="bg-white/5 backdrop-blur-sm border-white/10 shadow-lg rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:border-primary/50 hover:-translate-y-1"
               data-testid={`project-card-${index}`}
             >
-              <div className="relative overflow-hidden group">
+              <div className="relative overflow-hidden group h-56">
                 <img
                   src={project.image}
                   alt={`${project.title} interface`}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
               </div>
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                <h3 className="text-2xl font-bold mb-3 text-white">{project.title}</h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
                   {project.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, techIndex) => (
                     <Badge
                       key={techIndex}
-                      variant="default"
-                      className="bg-primary/10 text-primary border border-primary/20"
+                      variant="outline"
+                      className="text-accent border-accent/30 bg-accent/10"
                     >
                       {tech}
                     </Badge>
                   ))}
                 </div>
                 
-                <div className="flex space-x-4 mt-6">
-                  <Button asChild variant="outline" size="sm">
+                <div className="flex space-x-4">
+                  <Button asChild variant="outline" className="border-border hover:bg-muted/50">
                     <a
                       href={project.github}
                       target="_blank"
@@ -95,7 +95,7 @@ export default function ProjectsSection() {
                       Code
                     </a>
                   </Button>
-                  <Button asChild size="sm">
+                  <Button asChild className="bg-primary hover:bg-primary/90">
                     <a
                       href={project.demo}
                       target="_blank"
@@ -113,14 +113,15 @@ export default function ProjectsSection() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-16">
           <Button
             asChild
-            className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-primary/30 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-1"
+            size="lg"
+            className="bg-transparent border-2 border-primary text-primary font-bold transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1"
             data-testid="button-view-all-projects"
           >
             <a href="https://github.com/alexjohnson" target="_blank" rel="noopener noreferrer">
-              <Github className="h-4 w-4 mr-2" />
+              <Github className="h-5 w-5 mr-3" />
               View All Projects on GitHub
             </a>
           </Button>
